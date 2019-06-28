@@ -30,7 +30,7 @@ export default class SplashScreen extends Component {
     super(props)
 
     this.state = {
-
+      a: ''
     }
   }
 
