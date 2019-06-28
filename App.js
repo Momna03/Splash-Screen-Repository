@@ -3,7 +3,7 @@ import SplashScreen from './SplashScreen'
 
 export default class App extends Component {
 
-  render() {
+  render( ) {
     return (
       <SplashScreen />
     );
