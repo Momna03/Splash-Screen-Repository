@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, ImageBackground, Dimensions, TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet, Text, View, Image, ImageBackground, Dimensions, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
 
 const text1 = 'Splash Screen'
 const text2 = 'Compare prices of equipments between suppliers and get to know the latest promotion and updates.'
@@ -17,7 +17,7 @@ export default class App extends Component {
     
     return (
           
-        <ImageBackground style={{width: '100%', height: '100%'}} resizeMode={'cover'} source={require('./images/background.jpg')} >
+        <ImageBackground style={{width:Math.round(Dimensions.get('window').width), height: Math.round(Dimensions.get('window').height)}} resizeMode={'cover'} source={require('./images/background.jpg')} >
         <View style={styles.container}>
         <Image style={styles.logo} source={require('./images/logo.png')}/>
         <Text style={styles.text1_style}>{text1}</Text>
@@ -36,6 +36,7 @@ export default class App extends Component {
           </View>
 
         </View>
+        <ActivityIndicator style={styles.indicator_style} size='large' color="#C5C5C3"></ActivityIndicator>
         </ImageBackground>
     );
   }
@@ -49,22 +50,23 @@ const styles = StyleSheet.create({
     
   },
   logo: {
-    position: 'absolute',
-    top: 60,
+    //position: 'absolute',
+    top: '10%',
     position: 'absolute',
     width: 150,
     height: 150,
   },
   text1_style: {
-    position: 'absolute',
+    //position: 'absolute',
+    top: '45%',
     fontSize: 30,
     textAlign: 'center',
     margin: 20,
     color: '#FFFFFF',
   },
   text2_style: {
-    position: 'absolute',
-    top: 285,
+    //position: 'absolute',
+    top: '45%',
     fontSize: 15,
     textAlign: 'center',
     margin: 40,
@@ -74,17 +76,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    top: 420,
+    top: '70%',
   },
   signInButton: {
-    // position: 'absolute',
-    width: 80,
+    width: 110,
     height: 30,
   },
 
   signOutButton: {
-    // position: 'absolute',
-    width: 80,
+    width: 110,
     height: 30,
     backgroundColor: '#6A1C50', 
     borderRadius: 10,
@@ -93,5 +93,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     color: '#FFFFFF',
-  }
+  },
+  indicator_style: {
+    bottom: '5%',
+  },
 });
